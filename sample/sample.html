@@ -11,7 +11,7 @@
     <meta http-equiv="content-style-type" content="text/css">
     <script type="text/javascript" src="jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="jStageAligner.js"></script>
-    <script type"text/javascript">
+    <script type="text/javascript">
       $(function() {
         $("#box1").jStageAligner("CENTER_BOTTOM", {time: 500, easing: "swing", callback: function() {
           //alert("ok"); 
@@ -29,9 +29,10 @@
         padding: 0;
       }
 
-      h1 {
+      h1, pre {
         margin: 20px;
       }
+
 
       #container {
         height: 1000px;
@@ -71,6 +72,17 @@
   </head>
   <body>
     <h1>jStageAligner sample</h1>
+    <pre>
+$(function() {
+  $("#box1").jStageAligner("CENTER_BOTTOM", {time: 500, easing: "swing", callback: function() {
+    //alert("ok"); 
+  }});
+  $("#box2").jStageAligner("CENTER_MIDDLE", {time: 500, easing: "swing"});
+  $("#box3").jStageAligner("RIGHT_BOTTOM");
+  $("#box4").jStageAligner("LEFT_BOTTOM", {time: 100});
+  $("#box5").jStageAligner("RIGHT_MIDDLE", {time: 1500});
+});
+    </pre>
     <div id="container">
       <div id="box1"></div>
       <div id="box2"></div>
