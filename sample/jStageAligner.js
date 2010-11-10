@@ -7,7 +7,7 @@
  *  usage:
  *    .jStageAligner(position, [options]);
  *
- *  opsitons:
+ *  options:
  *    - time
  *    - marginTop
  *    - marginRight
