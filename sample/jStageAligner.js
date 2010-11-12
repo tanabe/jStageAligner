@@ -1,8 +1,8 @@
 /**
  *  jStageAligner.js
  *  require jQuery 1.2
- *  (c) Hideaki Tanabe
- *  http://blog.kaihatsubu.com
+ *  (c) Hideaki Tanabe <http://blog.kaihatsubu.com>
+ *  Licensed under the MIT License.
  *
  *  usage:
  *    .jStageAligner(position, [options]);
