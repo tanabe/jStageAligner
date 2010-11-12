@@ -43,51 +43,54 @@
       var targetPosition = {left: $(window).scrollLeft(), top: $(window).scrollTop()};
       var stageWidth = $(window).width();
       var stageHeight = $(window).height();
+      var marginX = options.marginLeft - options.marginRight;
+      var marginY = options.marginTop - options.marginBottom;
+
 
       switch (position) {
         case "LEFT_TOP":
-          targetPosition.left += options.marginLeft;
-          targetPosition.top  += options.marginTop;
+          targetPosition.left += marginX;
+          targetPosition.top  += marginY;
           break;
 
         case "LEFT_MIDDLE":
-          targetPosition.left += options.marginLeft;
-          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + options.marginTop);
+          targetPosition.left += marginX;
+          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + marginY);
           break;
 
         case "LEFT_BOTTOM":
-          targetPosition.left += options.marginLeft;
-          targetPosition.top  += stageHeight - self.height() + options.marginTop;
+          targetPosition.left += marginX;
+          targetPosition.top  += stageHeight - self.height() + marginY;
           break;
 
         case "RIGHT_TOP":
-          targetPosition.left += stageWidth - self.width() + options.marginLeft;
-          targetPosition.top  += options.marginTop;
+          targetPosition.left += stageWidth - self.width() + marginX;
+          targetPosition.top  += marginY;
           break;
 
         case "RIGHT_MIDDLE":
-          targetPosition.left += stageWidth - self.width() + options.marginTop;
-          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + options.marginTop);
+          targetPosition.left += stageWidth - self.width() + marginX;
+          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + marginY);
           break;
 
         case "RIGHT_BOTTOM":
-          targetPosition.left += stageWidth - self.width() + options.marginLeft;
-          targetPosition.top  += stageHeight - self.height() + options.marginTop;
+          targetPosition.left += stageWidth - self.width() + marginX;
+          targetPosition.top  += stageHeight - self.height() + marginY;
           break;
 
         case "CENTER_TOP":
-          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + options.marginLeft);
-          targetPosition.top  += options.marginTop;
+          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + marginX);
+          targetPosition.top  += marginY;
           break;
 
         case "CENTER_MIDDLE":
-          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + options.marginLeft);
-          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + options.marginTop);
+          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + marginX);
+          targetPosition.top  += Math.floor(stageHeight / 2 - self.height() / 2 + marginY);
           break;
 
         case "CENTER_BOTTOM":
-          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + options.marginLeft);
-          targetPosition.top  += stageHeight - self.height() + options.marginTop;
+          targetPosition.left += Math.floor(stageWidth / 2 - self.width() / 2 + marginX);
+          targetPosition.top  += stageHeight - self.height() + marginY;
           break;
       }
         return targetPosition;
