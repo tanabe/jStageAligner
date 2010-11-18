@@ -25,10 +25,9 @@ position には画面の四隅とそれぞれの辺の中央、画面中央の�
 移動完了時のコールバックも指定できます。  
 
     $("#box").jStageAligner("RIGHT_BOTTOM", {callback: function() {
-  alert("done");
-}});
+      alert("done");
+    }});
 
 ###不具合
-
 ブラウザのスクロールバーが表示→非表示する際に、スクロールバー分の隙間が空いてしまいます。
 
