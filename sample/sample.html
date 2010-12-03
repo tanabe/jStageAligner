@@ -20,6 +20,7 @@
         $("#box3").jStageAligner("RIGHT_BOTTOM");
         $("#box4").jStageAligner("LEFT_BOTTOM", {time: 100});
         $("#box5").jStageAligner("RIGHT_MIDDLE", {time: 1500});
+        $("#box6").jStageAligner("CENTER_TOP", {marginTop: 200});
       });
     </script>
 
@@ -67,6 +68,13 @@
         height: 100px;
         background-color: #ff0;
       }
+
+      #box6 {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+      }
+      
     </style>
 
   </head>
@@ -81,6 +89,7 @@ $(function() {
   $("#box3").jStageAligner("RIGHT_BOTTOM");
   $("#box4").jStageAligner("LEFT_BOTTOM", {time: 100});
   $("#box5").jStageAligner("RIGHT_MIDDLE", {time: 1500});
+  $("#box6").jStageAligner("CENTER_TOP", {marginTop: 200});
 });
     </pre>
     <div id="container">
@@ -89,6 +98,7 @@ $(function() {
       <div id="box3"></div>
       <div id="box4"></div>
       <div id="box5"></div>
+      <div id="box6"></div>
     </div>
   </body>
 </html>

@@ -34,13 +34,16 @@
     options.marginRight  = options.marginRight  || 0;
     options.marginBottom = options.marginBottom || 0;
     options.marginLeft   = options.marginLeft   || 0;
-    //options.delay        = options.delay        || 0;
     options.time         = options.time         || 0;
     options.easing       = options.easing       || "linear";
     options.callback     = options.callback     || null;
 
     var calculatePosition = function() {
-      var targetPosition = {left: $(window).scrollLeft(), top: $(window).scrollTop()};
+      var targetPosition = {left: 0, top: 0};
+      //animate
+      if (options.time > 0) {
+        targetPosition = {left: $(window).scrollLeft(), top: $(window).scrollTop()};
+      }
       var stageWidth = $(window).width();
       var stageHeight = $(window).height();
       var marginX = options.marginLeft - options.marginRight;
@@ -51,6 +54,8 @@
         case "LEFT_TOP":
           targetPosition.left += marginX;
           targetPosition.top  += marginY;
+          console.log(targetPosition.left);
+          console.log(targetPosition.top);
           break;
 
         case "LEFT_MIDDLE":
@@ -100,10 +105,18 @@
     var align = function() {
       var targetPosition = calculatePosition();
       self.clearQueue();
-      self.animate({ 
-        left: targetPosition.left,
-        top : targetPosition.top
-      }, options.time, options.easing, options.callback);
+      //animate
+      if (options.time > 0) {
+        self.animate({ 
+          left: targetPosition.left,
+          top : targetPosition.top
+        }, options.time, options.easing, options.callback);
+      //not animate
+      } else {
+        self.css("position", "fixed");
+        self.css("left", targetPosition.left);
+        self.css("top", targetPosition.top);
+      }
     };
 
     //resize handler
