@@ -116,6 +116,9 @@
         self.css("position", "fixed");
         self.css("left", targetPosition.left);
         self.css("top", targetPosition.top);
+        if (options.callback) {
+          options.callback.call();
+        }
       }
     };
 
