@@ -25,6 +25,7 @@
 (function($) {
   $.fn.jStageAligner = function(position, options) {
     var self = this;
+    var isIE6 = !jQuery.support.opacity && !jQuery.support.style && (typeof document.documentElement.style.maxHeight === "undefined");
     this.css("position", "absolute");
 
     if (!options) {
@@ -41,14 +42,13 @@
     var calculatePosition = function() {
       var targetPosition = {left: 0, top: 0};
       //animate
-      if (options.time > 0) {
+      if (options.time > 0 || isIE6) {
         targetPosition = {left: $(window).scrollLeft(), top: $(window).scrollTop()};
       }
       var stageWidth = $(window).width();
       var stageHeight = $(window).height();
       var marginX = options.marginLeft - options.marginRight;
       var marginY = options.marginTop - options.marginBottom;
-
 
       switch (position) {
         case "LEFT_TOP":
@@ -113,13 +113,26 @@
         }, options.time, options.easing, options.callback);
       //not animate
       } else {
-        self.css("position", "fixed");
-        self.css("left", targetPosition.left);
-        self.css("top", targetPosition.top);
+        //is IE 6
+        //IE 6 is not support position: fixed
+        //this cause have little bit blink bug
+        if (isIE6) {
+          self.css("position", "absolute");
+          self.css("left", targetPosition.left);
+          self.css("top", targetPosition.top);
+          $("body").css({
+              "background-image": "url(null)",
+              "background-attachment": "fixed"
+          });
+        } else {
+          self.css("position", "fixed");
+          self.css("left", targetPosition.left);
+          self.css("top", targetPosition.top);
+        }
         if (options.callback) {
           options.callback.call();
         }
-      }
+    }
     };
 
     //resize handler
